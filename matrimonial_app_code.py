@@ -4,6 +4,7 @@ import sqlite3
 import faiss-cpu
 import pandas as pd
 import numpy as np
+import sentence_transfromers
 from sentence_transformers import SentenceTransformer
 st.title("WELCOME TO MATRIMONIAL APP")
 # Connect to SQLite database
