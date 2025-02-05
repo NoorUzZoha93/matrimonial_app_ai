@@ -98,7 +98,7 @@ def Matching_function():
                 embedding = model.encode(user_text)
                 opposite_gender_embeddings.append(embedding)
             # Create a Faiss index
-            index = faiss.IndexFlatL2(len(opposite_gender_embeddings[0]))
+            index = faiss.IndexFlatL2(384))
             # Add the opposite gender embeddings to the index
             index.add(np.array(opposite_gender_embeddings))
             # Get the embedding of the selected user
