@@ -1,7 +1,7 @@
 import pdb
 import streamlit as st
 import sqlite3
-import faiss
+import faiss-cpu
 import pandas as pd
 import numpy as np
 from sentence_transformers import SentenceTransformer
