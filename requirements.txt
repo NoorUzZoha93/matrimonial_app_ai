@@ -1,6 +1,6 @@
-SQlite
 pandas 
 streamlit 
 numpy
 faiss-cpu 
 sentence-transformers
+sqlite3==3.48.0
