@@ -16,7 +16,7 @@ def registration_function():
     st.subheader("USER REGISTRATION")
     st.markdown("## Enter Your Details")
     name = st.text_input("Enter Your Name:")
-    age = st.text_input("Enter Your Age:")
+    age = st.number_input("Enter Your Age:")
     gender = st.selectbox("Select Your Gender:", ["Male", "Female"])
     education = st.text_input("Education:")
     location = st.text_input("Enter Your Location:")
