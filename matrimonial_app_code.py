@@ -71,7 +71,8 @@ def Matching_function():
     # Create a drop-down list of user profiles
     options = []
     for user_profile in user_profiles:
-        option = f"{user_profile['name']}, {user_profile['age']}, {user_profile['gender']}, {user_profile['education']}, {user_profile['location']}, {user_profile['preferences']}"
+        option = f"{user_profile['name']}"
+        # option = f"{user_profile['name']}, {user_profile['age']}, {user_profile['gender']}, {user_profile['education']}, {user_profile['location']}, {user_profile['preferences']}"
         options.append(option)
     selected_user = st.selectbox("Select a user", [""]+ options)
     # Selection of the user profiles
@@ -102,7 +103,10 @@ def Matching_function():
             # Get the embedding of the selected user
             selected_user_text = f"{selected_user_profile['name']} {selected_user_profile['age']} {selected_user_profile['gender']} {selected_user_profile['education']} {selected_user_profile['location']} {selected_user_profile['preferences']}"
             selected_user_embedding = model.encode(selected_user_text)
-
+            # Get the complete user profile of the  selected user
+            df = pd.DataFrame([selected_user_profile])
+            st.write("Selected User Profile:")
+            st.table(df)
             # Search for similar profiles
             D, I = index.search(np.array([selected_user_embedding]),k=5)
             # Display similar user profiles
@@ -118,7 +122,7 @@ def Matching_function():
         st.write("Please select a user.")
 
 
-tab1, tab2, tab3 =st.tabs(["USER REGISTRATION", "USERS' INFO","FIND SIMILAR PROFILES"])
+tab1, tab2, tab3 =st.tabs(["USER REGISTRATION", "USERS' INFO", "FIND SIMILAR PROFILES"])
 with tab1:
     registration_function()
 with tab2:
