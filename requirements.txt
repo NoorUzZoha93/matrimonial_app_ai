@@ -1,4 +1,4 @@
-sqlite3
+SQlite3
 pandas 
 streamlit 
 numpy
