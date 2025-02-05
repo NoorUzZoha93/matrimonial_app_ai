@@ -1,6 +1,5 @@
 pandas 
-streamlit 
+streamlit==1.20.0 
 numpy
 faiss-cpu 
 sentence-transformers
-sqlite3
