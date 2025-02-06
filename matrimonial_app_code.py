@@ -16,7 +16,7 @@ def registration_function():
     st.subheader("USER REGISTRATION")
     st.markdown("## Enter Your Details")
     name = st.text_input("Enter Your Name:")
-    age = st.text_input("Enter Your Age:")
+    age = st.number_input("Enter Your Age:")
     gender = st.selectbox("Select Your Gender:", ["Male", "Female"])
     education = st.text_input("Education:")
     location = st.text_input("Enter Your Location:")
@@ -32,6 +32,7 @@ def display_function():
     #         # fetch data from SQLITE
     data = c.execute("select * from matri_users")
     df = pd.DataFrame(data)
+    df =pd.drop_duplicates()
     st.write(df)
 
 def Matching_function():
