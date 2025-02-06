@@ -23,7 +23,7 @@ def registration_function():
     preferences = st.text_input("Enter Your Requirements:")
     submitted = st.button("Submit")
     if submitted:
-        c.execute("insert into matri_users values (?,?,?,?,?,?)", (name, age, gender, education, location,preferences))
+        c.execute("insert or ignore into matri_users values (?,?,?,?,?,?)", (name, age, gender, education, location,preferences))
         conn.commit()
         st.success("User Registered Successfully")
         st.balloons()
