@@ -32,6 +32,7 @@ def display_function():
     #         # fetch data from SQLITE
     data = c.execute("select * from matri_users")
     df = pd.DataFrame(data)
+    df= df.drop_duplicates()
     st.write(df)
     conn.commit()
 def Matching_function():
