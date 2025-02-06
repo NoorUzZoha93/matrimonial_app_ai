@@ -33,7 +33,7 @@ def display_function():
     data = c.execute("select * from matri_users")
     df = pd.DataFrame(data)
     st.write(df)
-
+    conn.commit()
 def Matching_function():
     st.subheader("FIND SIMILAR PROFILES")
     c.execute("SELECT * FROM matri_users")
