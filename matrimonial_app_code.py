@@ -101,7 +101,7 @@ def Matching_function():
                 embedding = model.encode(user_text)
                 opposite_gender_embeddings.append(embedding)
             # Create a Faiss index
-            index = faiss.IndexFlatL2(384)
+            index = faiss.IndexFlatL2(len(opposite_gender_embeddings[0]))
             # Add the opposite gender embeddings to the index
             index.add(np.array(opposite_gender_embeddings))
             # Get the embedding of the selected user
@@ -112,7 +112,7 @@ def Matching_function():
             # df = pd.DataFrame([selected_user_profile])
             st.write("Selected User Profile:")
             st.table([selected_user_profile])
-            # st.table(df)
+            #st.table(df)
 
             # Search for similar profiles
             D, I = index.search(np.array([selected_user_embedding]),k=5)
