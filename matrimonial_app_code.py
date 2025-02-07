@@ -53,9 +53,9 @@ def Matching_function():
     # Add the user embeddings to the index
     index.add(np.array(user_embeddings).astype('float32'))
     # Save the index to a file
-    faiss.write_index(index, "matrimonialapp_embedding.index")
+    # faiss.write_index(index, "matrimonialapp_embedding.index")
     # Read the index from the file
-    index = faiss.read_index("matrimonialapp_embedding.index")
+    # index = faiss.read_index("matrimonialapp_embedding.index")
     # Create a list of user profiles
     user_profiles = []
     for user in users:
@@ -109,9 +109,10 @@ def Matching_function():
             selected_user_embedding = model.encode(selected_user_text)
 
             # Get the complete user profile of the  selected user
-            df = pd.DataFrame([selected_user_profile])
+            # df = pd.DataFrame([selected_user_profile])
             st.write("Selected User Profile:")
-            st.table(df)
+            st.table([selected_user_profile])
+            # st.table(df)
 
             # Search for similar profiles
             D, I = index.search(np.array([selected_user_embedding]),k=5)
@@ -122,8 +123,9 @@ def Matching_function():
                 profiles ={"Name":user_profile['name'], "Age": user_profile['age'], "Gender":user_profile['gender'], "Education": user_profile['education'], "Location":user_profile['location'], "Preferences": user_profile['preferences'], "Distance": distance}
                 similar_user_profiles = similar_user_profiles+ [profiles]
             st.write("Similar User Profiles:")
-            similar_users_df = pd.DataFrame(similar_user_profiles)
-            st.table(similar_users_df)
+            # similar_users_df = pd.DataFrame(similar_user_profiles)
+            st.table(similar_user_profiles)
+            # st.table(similar_users_df)
     else:
         st.write("Please select a user.")
 
