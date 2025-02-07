@@ -32,7 +32,7 @@ def registration_function():
 
 def display_function():
     st.subheader("USERS' DATA")
-    #         # fetch data from SQLITE
+    # fetch data from SQLITE
     data = c.execute("select * from matri_users")
     df = pd.DataFrame(data)
     st.write(df)
