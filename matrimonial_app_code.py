@@ -7,12 +7,13 @@ import numpy as np
 from sentence_transformers import SentenceTransformer
 import sentence_transformers
 st.title("WELCOME TO MATRIMONIAL APP")
-# Connect to SQLite database
-conn = sqlite3.connect("MatrimonialAPP.db")
-c = conn.cursor()
-c.execute("Create table if not exists matri_users(name text, age integer, gender text, education text, location text, preferences text)")
+
 
 def registration_function():
+    # Connect to SQLite database
+    conn = sqlite3.connect("MatrimonialAPP.db")
+    c = conn.cursor()
+    c.execute("Create table if not exists matri_users(name text, age integer, gender text, education text, location text, preferences text)")
     st.subheader("USER REGISTRATION")
     st.markdown("## Enter Your Details")
     name = st.text_input("Enter Your Name:")
@@ -27,6 +28,8 @@ def registration_function():
         conn.commit()
         st.success("User Registered Successfully")
         st.balloons()
+
+
 def display_function():
     st.subheader("USERS' DATA")
     #         # fetch data from SQLITE
@@ -34,6 +37,8 @@ def display_function():
     df = pd.DataFrame(data)
     st.write(df)
     conn.commit()
+
+
 def Matching_function():
     st.subheader("FIND SIMILAR PROFILES")
     c.execute("SELECT * FROM matri_users")
