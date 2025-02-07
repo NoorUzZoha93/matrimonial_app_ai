@@ -8,7 +8,7 @@ from sentence_transformers import SentenceTransformer
 import sentence_transformers
 st.title("WELCOME TO MATRIMONIAL APP")
 
-
+@st.cache
 def registration_function():
     # Connect to SQLite database
     conn = sqlite3.connect("MatrimonialAPP.db")
