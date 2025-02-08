@@ -10,10 +10,11 @@ st.title("WELCOME TO MATRIMONIAL APP")
 # current_dir = os.path.dirname(__file__)
 # db_path =os.path.join(current_dir, 'MatApp','matrimonial_app.db')
 # @st.cache_data
+conn = sqlite3.connect("matrimonial_app.db")
+c = conn.cursor()
 def registration_function():
     # Connect to SQLite database
-    conn = sqlite3.connect("matrimonial_app.db")
-    c = conn.cursor()
+    
     c.execute("Create table if not exists matri_users(name text, age integer, gender text, education text, location text, preferences text)")
     st.subheader("USER REGISTRATION")
     st.markdown("## Enter Your Details")
@@ -34,7 +35,7 @@ def registration_function():
 def display_function():
     st.subheader("USERS' DATA")
     # fetch data from SQLITE
-    c= conn.cursor()
+    # c= conn.cursor()
     data = c.execute("select * from matri_users")
     df = pd.DataFrame(data)
     st.write(df)
