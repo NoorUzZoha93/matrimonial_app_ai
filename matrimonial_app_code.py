@@ -9,7 +9,7 @@ import sentence_transformers
 st.title("WELCOME TO MATRIMONIAL APP")
 # current_dir = os.path.dirname(__file__)
 # db_path =os.path.join(current_dir, 'MatApp','MatrimonialAPP.db')
-@st.cache
+@st.cache_data
 def registration_function():
     # Connect to SQLite database
     conn = sqlite3.connect("MatrimonialAPP.db")
