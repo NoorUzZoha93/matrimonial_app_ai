@@ -1,4 +1,3 @@
-import os
 import pdb
 import streamlit as st
 import sqlite3
@@ -13,7 +12,7 @@ st.title("WELCOME TO MATRIMONIAL APP")
 @st.cache
 def registration_function():
     # Connect to SQLite database
-    conn = sqlite3.connect("MatrimonialApp.db")
+    conn = sqlite3.connect("MatrimonialAPP.db")
     c = conn.cursor()
     c.execute("Create table if not exists matri_users(name text, age integer, gender text, education text, location text, preferences text)")
     st.subheader("USER REGISTRATION")
