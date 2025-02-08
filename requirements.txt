@@ -3,4 +3,3 @@ faiss-cpu
 sentence-transformers
 streamlit
 pandas
-os
