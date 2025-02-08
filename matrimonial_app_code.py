@@ -8,12 +8,12 @@ import numpy as np
 from sentence_transformers import SentenceTransformer
 import sentence_transformers
 st.title("WELCOME TO MATRIMONIAL APP")
-current_dir = os.path.dirname(__file__)
-db_path =os.path.join(current_dir, 'MatApp','MatrimonialAPP.db')
+# current_dir = os.path.dirname(__file__)
+# db_path =os.path.join(current_dir, 'MatApp','MatrimonialAPP.db')
 @st.cache
 def registration_function():
     # Connect to SQLite database
-    conn = sqlite3.connect("db_path")
+    conn = sqlite3.connect("MatrimonialApp.db")
     c = conn.cursor()
     c.execute("Create table if not exists matri_users(name text, age integer, gender text, education text, location text, preferences text)")
     st.subheader("USER REGISTRATION")
